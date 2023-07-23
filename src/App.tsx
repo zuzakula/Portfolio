@@ -18,6 +18,7 @@ import emailjs from "@emailjs/browser";
 import LinearProgress, {
   LinearProgressProps,
 } from "@mui/material/LinearProgress";
+import mainImage from './img/main_photo.jpg'
 
 const styledAboutMe = {
   image: {
@@ -151,7 +152,7 @@ const AboutMe = () => {
             </div>
           </Grid>
           <Grid item xs={6} style={styledAboutMe.imgContainer}>
-            <img src={image} style={styledAboutMe.image} alt="" />
+            <img src={mainImage} style={styledAboutMe.image} alt="" />
           </Grid>
         </Grid>
       </Container>

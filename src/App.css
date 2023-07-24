@@ -20,6 +20,13 @@ body {
   height: 5em;
 }
 
+.icon {
+  position: relative;
+  top: -2em;
+  left: 2em;
+  margin-right: 1em;
+}
+
 .topMenu {
   position: relative;
   padding: 1em;

@@ -18,7 +18,8 @@ import emailjs from "@emailjs/browser";
 import LinearProgress, {
   LinearProgressProps,
 } from "@mui/material/LinearProgress";
-import mainImage from './img/main_photo.jpg'
+import mainImage from "./img/main_photo.jpg";
+import { SocialIcon } from "react-social-icons";
 
 const styledAboutMe = {
   image: {
@@ -31,6 +32,12 @@ const styledAboutMe = {
   },
   imgContainer: {
     position: "absolute",
+  },
+  icons: {
+    marginTop: "1em",
+  },
+  icon: {
+    marginRight: "1em",
   },
 };
 
@@ -149,6 +156,14 @@ const AboutMe = () => {
                 Let's connect and create together in the exciting world of
                 frontend development!
               </strong>
+              <div style={styledAboutMe.icons}>
+                <span style={styledAboutMe.icon}>
+                  <SocialIcon url="https://github.com/zuzakula" />
+                </span>
+                <span style={styledAboutMe.icon}>
+                  <SocialIcon url="https://www.linkedin.com/in/zuzanna-kula-124a13235/" />
+                </span>
+              </div>
             </div>
           </Grid>
           <Grid item xs={6} style={styledAboutMe.imgContainer}>
@@ -354,35 +369,43 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Box className="topMenu">
-          <img src={image} className="profilePic" alt="" />
-          <div className="navigationButtons">
-            <Button
-              className="navigationButton"
-              onClick={() => scrollTo(aboutSection)}
-            >
-              About Me
-            </Button>
-            {/*<Button*/}
-            {/*  className="navigationButton"*/}
-            {/*  onClick={() => scrollTo(projectSection)}*/}
-            {/*>*/}
-            {/*  Projects*/}
-            {/*</Button>*/}
-            <Button
-              className="navigationButton"
-              onClick={() => scrollTo(resumeSection)}
-            >
-              Resume
-            </Button>
-            <Button
-              className="navigationButton"
-              onClick={() => scrollTo(contactSection)}
-            >
-              Contact me
-            </Button>
-          </div>
-        </Box>
+        <div className="menu">
+          <Box className="topMenu">
+            <img src={image} className="profilePic" alt="" />
+            <span className="icon">
+              <SocialIcon url="https://github.com/zuzakula" />
+            </span>
+            <span className="icon">
+              <SocialIcon url="https://www.linkedin.com/in/zuzanna-kula-124a13235/" />
+            </span>
+            <div className="navigationButtons">
+              <Button
+                className="navigationButton"
+                onClick={() => scrollTo(aboutSection)}
+              >
+                About Me
+              </Button>
+              {/*<Button*/}
+              {/*  className="navigationButton"*/}
+              {/*  onClick={() => scrollTo(projectSection)}*/}
+              {/*>*/}
+              {/*  Projects*/}
+              {/*</Button>*/}
+              <Button
+                className="navigationButton"
+                onClick={() => scrollTo(resumeSection)}
+              >
+                Resume
+              </Button>
+              <Button
+                className="navigationButton"
+                onClick={() => scrollTo(contactSection)}
+              >
+                Contact me
+              </Button>
+            </div>
+          </Box>
+        </div>
         <Divider />
         <Welcome />
         <div className="content">

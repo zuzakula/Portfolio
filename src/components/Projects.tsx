@@ -2,30 +2,18 @@ import {Container, ImageList, ImageListItem, ImageListItemBar} from "@mui/materi
 import style from "../styles/shared-styles";
 import styledProjects from "../styles/Projects.styled";
 import project1 from '../img/project1.png'
-import project2 from '../img/project2.jpg'
-import project3 from '../img/project3.jpg'
-import project4 from '../img/project4.jpg'
+import project2 from '../img/project2.png'
 
 const imageData = [
     {
         img: project1,
-        title: 'Project1',
-        url: 'https://github.com/zuzakula'
+        title: 'Car Dashboard',
+        url: 'https://github.com/zuzakula/car-dashboard'
     },
     {
         img: project2,
-        title: 'Project2',
-        url: 'https://github.com/zuzakula'
-    },
-    {
-        img: project3,
-        title: 'Project3',
-        url: 'https://github.com/zuzakula'
-    },
-    {
-        img: project4,
-        title: 'Project4',
-        url: 'https://github.com/zuzakula'
+        title: 'WebDziekanat',
+        url: 'https://github.com/zuzakula/web-dziekanat'
     }
 ]
 

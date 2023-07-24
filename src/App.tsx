@@ -7,6 +7,9 @@ import {
   createMuiTheme,
   Divider,
   Grid,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
   List,
   ThemeProvider,
 } from "@mui/material";
@@ -20,6 +23,8 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import mainImage from "./img/main_photo.jpg";
 import { SocialIcon } from "react-social-icons";
+import project1 from "./img/project1.png";
+import project2 from "./img/project2.png";
 
 const styledAboutMe = {
   image: {
@@ -108,6 +113,16 @@ const styledWelcome = {
   },
 };
 
+const styledProjects = {
+  imageItem: {
+    margin: "1em",
+  },
+  titleImage: {
+    fontSize: "2rem",
+    color: "white",
+  },
+};
+
 const theme = createMuiTheme({
   palette: {
     primary: pink,
@@ -170,6 +185,65 @@ const AboutMe = () => {
             <img src={mainImage} style={styledAboutMe.image} alt="" />
           </Grid>
         </Grid>
+      </Container>
+    </>
+  );
+};
+
+const imageData = [
+  {
+    img: project1,
+    title: "Car Dashboard",
+    url: "https://github.com/zuzakula/car-dashboard",
+  },
+  {
+    img: project2,
+    title: "WebDziekanat",
+    url: "https://github.com/zuzakula/web-dziekanat",
+  },
+];
+
+const Projects = () => {
+  return (
+    <>
+      <Container style={style.container}>
+        <h1 id="pageSection2" style={style.header}>
+          PROJECTS
+        </h1>
+        <ImageList
+          sx={{ width: 500, height: 450 }}
+          style={{ width: "100%", height: "100%" }}
+        >
+          {imageData.map((item) => (
+            <ImageListItem key={item.img} style={styledProjects.imageItem}>
+              <img src={`${item.img}`} alt={item.title} loading="lazy" />
+              <ImageListItemBar
+                title={
+                  <span>
+                    <SocialIcon url={item.url} />
+                  </span>
+                }
+                sx={{
+                  "& .MuiImageListItemBar-title": {
+                    display: "inline",
+                    marginTop: "0 !important"
+                  },
+                  "& .MuiImageListItemBar-subtitle": {
+                    fontSize: "0.8em",
+                    fontFamily: "Montserrat",
+                    display: "inline-block",
+                    position: "relative",
+                    top: "0.3em",
+                    marginLeft: "0.8em"
+                  },
+                }}
+                subtitle={item.title}
+                position="below"
+                style={styledProjects.titleImage}
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
       </Container>
     </>
   );
@@ -342,7 +416,7 @@ const Resume = () => {
 
 function App() {
   let aboutSection;
-  // let projectSection;
+  let projectSection;
   let resumeSection;
   let contactSection;
 
@@ -350,7 +424,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     aboutSection = document.getElementById("pageSection1");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // projectSection = document.getElementById("pageSection2");
+    projectSection = document.getElementById("pageSection2");
     // eslint-disable-next-line react-hooks/exhaustive-deps
     resumeSection = document.getElementById("pageSection3");
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -369,7 +443,6 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div className="menu">
           <Box className="topMenu">
             <img src={image} className="profilePic" alt="" />
             <span className="icon">
@@ -385,12 +458,12 @@ function App() {
               >
                 About Me
               </Button>
-              {/*<Button*/}
-              {/*  className="navigationButton"*/}
-              {/*  onClick={() => scrollTo(projectSection)}*/}
-              {/*>*/}
-              {/*  Projects*/}
-              {/*</Button>*/}
+              <Button
+                className="navigationButton"
+                onClick={() => scrollTo(projectSection)}
+              >
+                Projects
+              </Button>
               <Button
                 className="navigationButton"
                 onClick={() => scrollTo(resumeSection)}
@@ -405,12 +478,11 @@ function App() {
               </Button>
             </div>
           </Box>
-        </div>
         <Divider />
         <Welcome />
         <div className="content">
           <AboutMe />
-          {/*<Projects />*/}
+          <Projects />
           <Resume />
           <ContactMe />
         </div>

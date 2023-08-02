@@ -38,6 +38,7 @@ const Resume = () => {
                 </Box>
             </Grid>
           <Grid item xs={6}>
+            <h2>Operations Analyst</h2>
             <h2>Frontend Developer</h2>
             <h3>Comarch, July 2022 - January 2023</h3>
             <List>

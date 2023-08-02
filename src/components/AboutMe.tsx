@@ -2,7 +2,6 @@ import "../styles/shared-styles";
 import style from "../styles/shared-styles";
 import styledAboutMe from "../styles/AboutMe.styled";
 import { Container, Grid } from "@mui/material";
-import React from "react";
 import image from "../img/main_photo.jpg";
 
 const AboutMe = () => {

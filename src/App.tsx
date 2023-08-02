@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   Box,
   Button,
@@ -25,6 +25,8 @@ import mainImage from "./img/main_photo.jpg";
 import { SocialIcon } from "react-social-icons";
 import project1 from "./img/project1.png";
 import project2 from "./img/project2.png";
+import project3 from "./img/project3.png";
+import project4 from "./img/project4.png";
 
 const styledAboutMe = {
   image: {
@@ -120,7 +122,7 @@ const styledProjects = {
   titleImage: {
     fontSize: "2rem",
     color: "white",
-  },
+  }
 };
 
 const theme = createMuiTheme({
@@ -201,6 +203,16 @@ const imageData = [
     title: "WebDziekanat",
     url: "https://github.com/zuzakula/web-dziekanat",
   },
+  {
+    img: project3,
+    title: "Wordle Clone",
+    url: "https://github.com/zuzakula/wordle-clone",
+  },
+  {
+    img: project4,
+    title: "Zodiact Match App",
+    url: "https://github.com/zuzakula/zodiac-match-app",
+  },
 ];
 
 const Projects = () => {
@@ -213,10 +225,11 @@ const Projects = () => {
         <ImageList
           sx={{ width: 500, height: 450 }}
           style={{ width: "100%", height: "100%" }}
+          className="projectImages"
         >
           {imageData.map((item) => (
             <ImageListItem key={item.img} style={styledProjects.imageItem}>
-              <img src={`${item.img}`} alt={item.title} loading="lazy" />
+              <img src={`${item.img}`} alt={item.title} loading="lazy" className="projectImg" />
               <ImageListItemBar
                 title={
                   <span>
@@ -252,14 +265,14 @@ const Projects = () => {
 const ContactMe = () => {
   const form = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
         "service_munyh6u",
         "template_2mou541",
-        form.current,
+        form.current as unknown as string,
         "QIrdxxyOlGbwCE-nQ"
       )
       .then(
@@ -324,13 +337,13 @@ const ContactMe = () => {
 };
 
 const Welcome = () => {
-  let aboutSection;
+  let aboutSection: any;
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     aboutSection = document.getElementById("pageSection1");
   }, []);
 
-  const scrollTo = (section) => {
+  const scrollTo = (section: any) => {
     if (section) {
       window.scrollTo({
         top: section.offsetTop,
@@ -389,9 +402,27 @@ const Resume = () => {
               <LinearProgressWithLabel value={50} />
               <h4>Figma</h4>
               <LinearProgressWithLabel value={60} />
+              <h4>PHP</h4>
+              <LinearProgressWithLabel value={55} />
+              <h4>Java/Spring</h4>
+              <LinearProgressWithLabel value={55} />
             </Box>
           </Grid>
           <Grid item xs={6}>
+            <h2>Operations Analyst</h2>
+            <h3>Marsh & McLennan, October 2023 - current</h3>
+            <List>
+              <ul>
+                <li>
+                  Processed german files with precision, maintaining a high standard of accuracy in data handling.
+                </li>
+                <li>
+                  Participated in a data analysis project, showcasing strong analytical skills and delivering actionable insights.
+                </li>
+              </ul>
+            </List>
+            <h2>Webmaster</h2>
+            <h3>Erasmus Student Network, January 2023 - current</h3>
             <h2>Frontend Developer</h2>
             <h3>Comarch, July 2022 - January 2023</h3>
             <List>
@@ -415,10 +446,10 @@ const Resume = () => {
 };
 
 function App() {
-  let aboutSection;
-  let projectSection;
-  let resumeSection;
-  let contactSection;
+  let aboutSection: HTMLElement | null;
+  let projectSection: HTMLElement | null;
+  let resumeSection: HTMLElement | null;
+  let contactSection: HTMLElement | null;
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -431,7 +462,7 @@ function App() {
     contactSection = document.getElementById("pageSection4");
   }, []);
 
-  const scrollTo = (section) => {
+  const scrollTo = (section: HTMLElement | null) => {
     if (section) {
       window.scrollTo({
         top: section.offsetTop,
